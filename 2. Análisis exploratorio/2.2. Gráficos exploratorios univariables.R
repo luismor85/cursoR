@@ -2,33 +2,35 @@
 #GRÁFICOS EXPLORATORIO UNIVARIABLES#
 ####################################
 
-#Si queremos comparar entre dos imágenes <---- par(mfrow = c(1,2))  
+En cualquier gráfico:
+  ..., main = "Título gráfica", sub = "Fuente de la gráfica")
 
 #Boxplot
   #col= cambia el color
   #abline(h =) establece una línea horizontal
   
-  boxplot(#basedatos$`Variable`, col = "orange")
+  boxplot(BaseDatos$V1, col = "orange")
   abline(h = 4.18, col = "red")
   
-  boxplot(#basedatos$`Variable`, col = "red")
+  boxplot(BaseDatos$V1, col = "grey")
   abline(h = 2.3, col = "blue")
-  boxplot(#basedatos$`Variable`, col = "grey")
-  boxplot(#basedatos$`Variable`, col = "grey")
 
-#Histogram
+#Histogram de barras
   #breaks= cambia el número de barras
   #rug muestra la densidad en cada valor
   #abline(v =) establece una línea vertical
   
-  hist(#basedatos$`Variable`, col = "grey", main = "Descripción")
-  rug(#basedatos$`Variable`)
+  hist(BaseDatos$V1, col = "grey", main = "Descripción")
+  rug(BaseDatos$V1)
   abline(v = 83, lwd = 2)
-  abline(v = median(#basedatos$`Variable`), col = "red", lwd = 4)
+  abline(v = median(BaseDatos$V1), col = "red", lwd = 4)
   
-  hist(#basedatos$`Variable`, col = "grey", breaks = 10)
-  hist(#basedatos$`Variable`, col = "grey")
+  hist(BaseDatos$V1, col = "grey", breaks = 6)
+  hist(BaseDatos$V1, col = "grey")
 
-#Barplot (para variables categóricas)
-  barplot(table(#basedatos$`Variable`), col = "green", main = "Descripción")
+#Histograma de densidad
+  densidad_V1 <- density(BaseDatos$V1)
+  plot(densidad_V1)
   
+#Barplot (para variables categóricas)
+  barplot(table(BaseDatos$V1), col = "green", main = "Descripción")
