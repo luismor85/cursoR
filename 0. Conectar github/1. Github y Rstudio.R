@@ -33,3 +33,9 @@ git config --global user.email "#email"
 
 #6. New Project -> Version Control -> Git
   
+-------------------------------------
+  
+#Al hacer un cambio -> Git -> Commit -> Push
+  
+#Para descargar cambios -> Pull
+  
