@@ -21,7 +21,7 @@ use_git_config(user.name="#nombre", user.email="#email")
 git config --global user.name "#nombre"
 git config --global user.email "#email"
 
------------------------------------
+--------------------------------------
 
 #4. Vincular RStudio con github
   #Tools / Global Option / Git
