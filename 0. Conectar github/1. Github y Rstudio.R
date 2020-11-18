@@ -29,7 +29,7 @@ git config --global user.email "#email"
 
 #5. Obtener SSH Key e instalarla en Github.com -> Settings ->SSH
   
-------------------------------------
+-------------------------------------
 
 #6. New Project -> Version Control -> Git
   
