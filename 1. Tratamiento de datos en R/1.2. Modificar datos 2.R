@@ -2,12 +2,14 @@
 #MODIFICAR DATOS 2#
 ###################
 
-#Renombrar columnas (variables)
-  #Opción 1
-  BD <- select(BaseDatos, new.V1 = V1, new.V2 = V2)
+library("dplyr")
 
-  #Opción 2
-  BD <- rename(BaseDatos, new.V1 = V1, new.V2 = V2)
+#Renombrar columnas (variables)
+#Opción 1: cambia el nombre de las variables
+BaseDatos <- rename(BaseDatos, renameV1 = V1, renameV2 = V2)
+
+  #Opción 2: crea una nueva base de datos ÚNICAMENTE con las variables elegidas
+  BaseDatos <- select(BaseDatos, newnameV1 = V1, newnameV2 = V2, V3, V4)
 
 #Quedarse con los valores no repetidos de una columna
   BD <- distinct(BaseDatos, V1) #Elige de la V1 los valores distintos
