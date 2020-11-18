@@ -37,5 +37,5 @@ git config --global user.email "#email"
   
 #Al hacer un cambio -> Git -> Commit -> Push
   
-#Para descargar cambios -> Pull
+#Para descargar cambios -> Git -> Pull
   
