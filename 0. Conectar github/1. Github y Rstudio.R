@@ -5,7 +5,7 @@
 #1. Creamos un perfil de usuario en github.com
 #nombre:       #email
 
-#2. Creamos un repositorio nuevo en github.con
+#2. Creamos un repositorio nuevo en github.com
 
 ----------------------
 
@@ -31,7 +31,7 @@ git config --global user.email "#email"
   
 -------------------------------------
 
-#6. New Project -> Version Control -> Git
+#6. File -> New Project -> Version Control -> Git
   
 -------------------------------------
   
