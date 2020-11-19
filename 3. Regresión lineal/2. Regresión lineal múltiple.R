@@ -3,6 +3,14 @@
 #####################################
 
 
+V1~V2+V3+V4
+
+
+#Coeficiente de correlación
+cor(BaseDatos)
+
+NuevaBaseDatos <- select(BaseDatos, V1, V2, V3, V4)
+
 
 #Diagramas de dispersión de conjunto de variables
 pairs(#formula)
