@@ -2,6 +2,9 @@
 #MODELO DE REGRESIÓN LINEAL MÚLTIPLE#
 #####################################
 
+#Teoría (log): https://economipedia.com/definiciones/logaritmos-en-econometria.html
+#Regresión múltiple ampliada: https://rpubs.com/Joaquin_AR/226291
+
 #--------------------------------
   
 #Definimos el modelo: V1~V2+V3+V4+V5
@@ -16,16 +19,16 @@
 
   #Posible correlación de predictores (colinealidad)
   #Variables que no aportan nada al modelo (parsimonia)
-  #Relación lineal
+  #Relación lineal (OLS)
   #Distribución normal de los residuos
   #Homocedasticidad (Varianza de los residuos constante)
   #Grados de libertad insuficientes (observaciones > 10*variables)
 
 #-------------------Correlación entre variables-------------------------
-  
+
 #Base de Datos
-  #library("dplyr")  
-  NuevaBaseDatos <- select(BaseDatos, V1, V2, V3, V4, V5)
+  library("dplyr")  
+  NuevaBaseDatos <- select(BaseDatos, OcupHot, MovA, ABOccuRate, GDPpc, S.S)
   
   #Coeficiente de correlación
   #Valores cercanos a 1 = alta relación entre las variables
@@ -33,21 +36,12 @@
 
   #Diagramas de dispersión de conjunto de variables
   pairs(#formula)
-  pairs(V1~V2+V3+V4+V5, main='Gráficos de dispersión', col='blue', col.axis='black')
-  
-  reg2 <- lm(V1~V2+V3+V4+V5)
-  summary(reg2)
+  pairs(V1~V2+V3+V4+V5, main='Gráficos de dispersión múltiple', col='red', col.axis='black')
 
+#-------------------Regresión-------------------------
+    
+  modelo.lineal.m <- lm(Ocup~MovA+AB+S.S)
+  summary(modelo.lineal.m)
   
-  V1 <- BaseDatos$OcupHot
-  V2 <- log(BaseDatos$GDPpc)
-  V3 <- log(BaseDatos$MovA) #Eliminar 0
-  V4 <- log(BaseDatos$ABOccuRate)
-  V5 <- BaseDatos$S.S  
-  
-  V1 <- BaseDatos$OcupHot
-  V2 <- BaseDatos$GDPpc
-  V3 <- BaseDatos$MovA
-  V4 <- BaseDatos$ABOccuRate
-  V5 <- BaseDatos$S.S  
+
   
