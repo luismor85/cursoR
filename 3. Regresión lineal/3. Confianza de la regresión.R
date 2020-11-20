@@ -5,25 +5,28 @@
 # Teoría: https://www.diegocalvo.es/analisis-de-regresion-simple-en-r/
          #http://webspace.ship.edu/pgmarr/Geo441/Lectures/Lec%205%20-%20Normality%20Testing.pdf
 
+V1 <- BaseDatos$OcupHot
+V2 <- BaseDatos$ABOccuRate
+
 # Normalidad de la muestra
   #Un primer análisis nos dará pistas de la  normalidad de la muestra.
-  hist(V2)
-  hist(BaseDatos[,5]) #siendo 5 la columna número 5 del dataframe
+  hist(V1)
+  hist(BaseDatos[,2]) #siendo 5 la columna número 5 del dataframe
   
   library(ggplot2)
   
-  ggplot(data = BaseDatos, aes(x = V1)) +
+  ggplot(data = BaseDatos, aes(x = V2)) +
     geom_histogram(aes(y = ..density.., fill = ..count..)) +
     scale_fill_gradient(low = "#DCDCDC", high = "#7C7C7C") +
     stat_function(fun = dnorm, colour = "firebrick",
-                  args = list(mean = mean(V1),
-                              sd = sd(V1))) +
+                  args = list(mean = mean(V2),
+                              sd = sd(V2))) +
     ggtitle("Histograma con curva normal teórica") +
     theme_bw()
   
 #QQPlot (Gráfico cuantil - cuantil)
-  qqnorm(V1, pch=20, main='QQplot')
-  qqline(V1)
+  qqnorm(V2, pch=20, main='QQplot')
+  qqline(V2)
   
   #Test de normalidad
   
@@ -32,7 +35,7 @@
     # p-valor < 0.05, la hipótesis nula es rechazada (no podemos garantizar que es una distribución normal)
     # p-valor > 0.05, la hipótesis nula no se rechaza (la muestra tiene una distribución estadísticamente normal)
   
-    shapiro.test(x = V1)
+    shapiro.test(x = V2)
   
   #Kolmogorov-Smirnov -> Lillefors: test de normalidad para muestras > 50 observaciones
     library("nortest")
@@ -40,30 +43,22 @@
   
   #Jarque-Bera
     library("tseries")
-    jarque.bera.test(x = V2)
+    jarque.bera.test(x = V1)
     
-    
-# Test de Shapiro-Wilk (normalidad de los residuos)
-  # Hipótesis nula: normalidad muestra. 
-  # p-valor < 0.05, la hipótesis nula es rechazada - (los datos no vienen de una distribución normal). 
-  # p-valor > 0.05, no puede rechazarse la hipótesis nula - (asumimos que la distribución de nuestra muestra es normal)
-
-  shapiro.test(modelo.lineal$residuals)
-
 # Test de Breush-Pagan (homocedasticidad de los residuos)
-  # Ho: La varianza de los residuos es homocedástica (los errores de la regresión no tienen varianza constante)
-  # Si p-valor <0.05, es rechazada la hipótesis nula. Heterocedasticidad que debemos corregir.
+  # Ho: La varianza de los residuos es homocedástica (los errores de la regresión tienen varianza constante)
+  # Si p-valor < 0.05, es rechazada la hipótesis nula. Heterocedasticidad que debemos corregir.
   # Si p-valor > 0.05, no se rechaza la hipótesis nula: la varianza de los residuos es homocedastica
 
   library(lmtest)
-  bptest(modelo.lineal)
+  bptest(modelo.lineal.m)
 
 #Test de Durbin-Watson (autocorrelación)
   # Hipótesis nula: Autocorrelación de primer orden = 0
   # p-valor < 0.05, se puede rechazar la H0 -> debemos rechazar la hipótesis nula de ausencia de autocorrelación en el modelo (problema de autocorrelación)
   # p-valor > 0.05, no se rechaza la H0 -> Podemos confirmar la autocorrelación = 0
 
-  dwtest(modelo.lineal,alternative = "two.sided",iterations = 1000)
+  dwtest(modelo.lineal.m,alternative = "two.sided",iterations = 1000)
 
 #Test de Breusch-Godfrey (autocorrelación de orden superior)
   # Hipótesis nula: no hay autocorrelación de orden x
