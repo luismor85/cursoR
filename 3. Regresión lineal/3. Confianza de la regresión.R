@@ -3,39 +3,46 @@
 ########################
 
 # Teoría: https://www.diegocalvo.es/analisis-de-regresion-simple-en-r/
+         #http://webspace.ship.edu/pgmarr/Geo441/Lectures/Lec%205%20-%20Normality%20Testing.pdf
 
 # Normalidad de la muestra
-  #Hipótesis nula (H0): La muestra proviene de una distribución normal.
-  
   #Un primer análisis nos dará pistas de la  normalidad de la muestra.
-  hist(V1)
+  hist(V2)
   hist(BaseDatos[,5]) #siendo 5 la columna número 5 del dataframe
+  
+  library(ggplot2)
+  
+  ggplot(data = BaseDatos, aes(x = V1)) +
+    geom_histogram(aes(y = ..density.., fill = ..count..)) +
+    scale_fill_gradient(low = "#DCDCDC", high = "#7C7C7C") +
+    stat_function(fun = dnorm, colour = "firebrick",
+                  args = list(mean = mean(V1),
+                              sd = sd(V1))) +
+    ggtitle("Histograma con curva normal teórica") +
+    theme_bw()
+  
+#QQPlot (Gráfico cuantil - cuantil)
+  qqnorm(V1, pch=20, main='QQplot')
+  qqline(V1)
   
   #Test de normalidad
   
+  #Saphiro-Wilk: test de normalidad para muestras < 50 observaciones
+    # Hipótesis nula (H0): La muestra posee una distribución estadísticamente normal.
+    # p-valor < 0.05, la hipótesis nula es rechazada (no podemos garantizar que es una distribución normal)
+    # p-valor > 0.05, la hipótesis nula no se rechaza (la muestra tiene una distribución estadísticamente normal)
   
+    shapiro.test(x = V1)
   
+  #Kolmogorov-Smirnov -> Lillefors: test de normalidad para muestras > 50 observaciones
+    library("nortest")
+    lillie.test(x = V1)
   
-  
-  
-  install.packages("PoweR")
-  library("PoweR")
-  
-  attach(BaseDatos)
-  Normality.tests(V1)
-  
-  V1 <- BaseDatos$OcupHot
-  
-  
-  lillie.test(OcupHot)
-
-  install.packages("sos")
-  library(sos)
-  findFn('Anderson-Darling')
-  
-  
+  #Jarque-Bera
+    library("tseries")
+    jarque.bera.test(x = V2)
     
-
+    
 # Test de Shapiro-Wilk (normalidad de los residuos)
   # Hipótesis nula: normalidad muestra. 
   # p-valor < 0.05, la hipótesis nula es rechazada - (los datos no vienen de una distribución normal). 
