@@ -45,6 +45,15 @@
       #el plato 1, 2 y 3, el 1, 3 y 4, el 1, 5, 7... 10 formas
       choose (5, 3)
       
+  #Redondeos
+    print(función,n) #muestra las n cifras del resultado de la función
+      print(13/3,3)
+      print(pi,22)
+      
+    print(función,n) #muestra las n cifras a partir del decimal
+      round(13/3,3)
+      
+      
   #Trigonometría
       
       sin(x) #seno de x
