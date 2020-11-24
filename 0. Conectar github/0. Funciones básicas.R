@@ -38,6 +38,7 @@
     exp(x) #e elevado a x
     log(x) #logaritmo neperiano de x
     log10(x) #logaritmo de x en base 10
+    log(a,b) #logaritmo de a en base b
     abs(x) #número absoluto de x
     factorial(x) #factorial n*(n-1)
     choose(n, m) #coeficiente binomial (factn / m-(factn-factm))
@@ -50,7 +51,7 @@
       print(13/3,3)
       print(pi,22)
       
-    print(función,n) #muestra las n cifras a partir del decimal
+    round(función,n) #muestra las n cifras a partir del decimal
       round(13/3,3)
       
       

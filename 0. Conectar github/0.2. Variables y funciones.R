@@ -27,3 +27,26 @@
   rm(variable)
   
   rm(list = ls()) #borrar todas las variables y funciones
+  
+#Variables múltiples con distintos valores
+  Opfunciones <- function(a,b) {
+            print(a+b)
+            print(a-b)
+            print(a*b)
+            print(a/b)
+  }
+  
+  Opfunciones(1,3)
+
+#Variables múltiples con distintos valores indicando la operación
+  
+  Opfunciones <- function(a,b) {
+    print(paste(sprintf("%i + %i = ",a,b),a+b))
+    print(paste(sprintf("%i - %i = ",a,b),a-b))
+    print(paste(sprintf("%i * %i = ",a,b),a*b))
+    print(paste(sprintf("%i / %i = ",a,b),a/b))
+  }
+  
+  Opfunciones(1,3)
+  
+  
