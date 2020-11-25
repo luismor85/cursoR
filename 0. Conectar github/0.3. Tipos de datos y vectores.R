@@ -27,20 +27,28 @@
   (1:10)+(sqrt(1:10))
 
 # En un vector de R todos los datos deben ser de un mismo tipo
-  # Lógical (Verdadero, Falso; Mucho, Poco)
-  # integer (números enteros)
-  # numeric (números reales)
-  # complex (números complejos)
-  # character (palabras: personas, países...)
+  class(vector) # Ver el tipo de vector
+    # Lógical (Verdadero, Falso; Mucho, Poco)
+    # integer (números enteros)
+    # numeric (números reales)
+    # complex (números complejos)
+    # character (palabras: personas, países...)
 
-# Ver el tipo de vector
-  class(vector)
+# Información en el vector (subvectores)
+  vector(i) #valor de la posición i del vector
+  vector(legth(vector)) #último valor del vector
+  vector(a:b) #valores del vector que ocupan las posiciones de la "a" hasta la "b"
+  vector(-i) #todos los valores del vector menos el que ocupa la posición "i"
   
-# Cargar datos de internet o de un directorio local
-  scan(url)
-  scan(directorio)
-  scan()
-      copy-paste #crearía un vector con datos copiados y pegados
+#Condicionales en un vector
+  which(x cumple condición)
+  which.max(x) #nos da el primer valor máximo
+    which(x==max(x)) #nos da todos los valores máximos
+  which.min(x)
+    which(x==min(x))
+  
+  
+  
 
 
   

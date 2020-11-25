@@ -41,3 +41,10 @@
   BD <- filter(BaseDatos, V1 > 1 | V1 <= 2) #....
   BD <- filter(BaseDatos, V1 == 0) #crea base de datos, mostrando solo la muestra con las condiciones
   
+# Cargar datos de internet o de un directorio local
+  scan(url)
+  scan(directorio)
+  scan()
+  copy-paste #crearía un vector con datos copiados y pegados
+  
+  
