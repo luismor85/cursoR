@@ -20,6 +20,10 @@
   f2 <- function(x,y) {x+y+2}
     f2 (1,2)
 
+#Modificar variables/funciones sin consola (método más rápido)
+  fix(funcion)
+  fix(variable)
+  
 #Listar variables
   ls()
   
