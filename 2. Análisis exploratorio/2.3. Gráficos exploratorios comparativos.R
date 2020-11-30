@@ -6,15 +6,18 @@ library(lattice)
 library(ggplot2)
 
 #Boxplot con dos variables (indicado cuando una de las dos es categórica)
-boxplot(V1~V2, data = BaseDatos)
+  boxplot(V1~V2, data = BaseDatos)
 
 #Histograma
-hist(subset(BaseDatos, V1 == "x")$V2) #Representa un histograma de la Variable 2 en relación al Valor "x" de la Variable 1
+  hist(subset(BaseDatos, V1 == "x")$V2) #Representa un histograma de la Variable 2 en relación al Valor "x" de la Variable 1
 
 #Scatterplot
-with(BaseDatos, plot(V1, V2))
-with(subset(BaseDatos, V3 == "x"), plot(V1,V2)) #Subset... se utiliza para indicar un valor concreto de una variable (generalmente categórica)
+  with(BaseDatos, plot(OcupHot, GDPpc))
+  with(subset(BaseDatos, V3 == "x"), plot(V1,V2)) #Subset... se utiliza para indicar un valor concreto de una variable (generalmente categórica)
 
+  #o directamente
+  plot(BaseDatos$V1, BaseDatos$V2)
+  
 #Comparativas de scatterplot entre variables según el valor de una tercera categórica
 xyplot(V1 ~ V2 | V3, data = BaseDatos, layout = c (2,1))
 
