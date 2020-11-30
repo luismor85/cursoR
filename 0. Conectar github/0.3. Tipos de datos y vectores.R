@@ -2,6 +2,8 @@
 #TIPOS DE DATOS Y VECTORES#
 ###########################
 
+https://www.cs.us.es/~fran/TIB/semana3.pdf
+
 #Crear un vector
   c (1, 2, 3) #Crea un vector en una columna con los datos, (1, 2, 3)
   rep (a, x) #Crea un vector repitiendo x veces el valor "a"
@@ -35,10 +37,10 @@
     # character (palabras: personas, países...)
 
 # Información en el vector (subvectores)
-  vector(i) #valor de la posición i del vector
-  vector(legth(vector)) #último valor del vector
-  vector(a:b) #valores del vector que ocupan las posiciones de la "a" hasta la "b"
-  vector(-i) #todos los valores del vector menos el que ocupa la posición "i"
+  vector[i] #valor de la posición i del vector
+  vector[legth(vector)] #último valor del vector
+  vector[a:b] #valores del vector que ocupan las posiciones de la "a" hasta la "b"
+  vector[-i] #todos los valores del vector menos el que ocupa la posición "i"
   
 #Condicionales en un vector
   which(x cumple condición)

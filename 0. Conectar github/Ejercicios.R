@@ -48,5 +48,27 @@ añob <- 60*60*24*366
       
       f <- ((2+3i)^2)/(5+8i)
         round(f,3) = 0.798
-      
+
+
+#EJERCICIO 2
+
+# Cread un vector llamado "Harry" formado por la sucesión de números consecutivos 
+#entre el -10 y 27. Pedidle a R que os devuelva el elemento de índice 7. 
+#Escribid el resultado.
+  
+  Harry = c(-10:27)
+  Harry[7] -> -4
+  
+# Dad el máximo de la sucesión (100*2^n -7*3^n) con n=0,...,200
+  f = function(x) {(100*2^x) -(7*3^x)}
+  nf = f(0:200)
+  max(nf) -> 1499
+
+# Cread la sucesión de números consecutivos entre 0 y 40. 
+# A continuación, cread el vector (3*5^n - 1) con n=0,...,40. Ponedle como nombre x. 
+# Ahora, dad el subvector de los elementos que son estrictamente mayores que 3.5
+ 
+  x = function(x) {(3*5^x - 1)}
+  xc = x(0:40)
+  subvector <- which(xc>3.5)
       

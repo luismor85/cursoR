@@ -54,9 +54,7 @@
     round(función,n) #muestra las n cifras a partir del decimal
       round(13/3,3)
       
-      
   #Trigonometría
-      
       sin(x) #seno de x
       cos(x) #coseno de x
       tan(x) #tangente de x
