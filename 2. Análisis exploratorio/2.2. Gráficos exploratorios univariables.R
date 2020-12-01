@@ -28,19 +28,37 @@
       "dotted" línea de puntos
       "dotdashed" línea alterna puntos y rayas
     lwd = #grosor de líneas
-    
 
+      
+#Información extra
+  points(x,y,...) #añade un punto en el gráfico en el punto x, y
+  abline(h=a,...,) #añade una línea horizontal en y = a
+  abline(v=b,...,) #añade una línea vertical en x = b
+  texts(x,y,labels = "...", pos = x) #añade una etiqueta de texto en los puntos x,y
+    pos = x #x toma valores 1 a 5, siendo abajo, izquierda, arriba, derecha, centro, las posiciones
+    pos = c(x,x,x,...) #cada valor, una posición distinta
+    pos = c(rep(3, times = 5), 1) #los 5 primeros valores toman la posición 3 (arriba), el último la 1 (izquierda).
+
+#Leyenda
+  legend (posición, legend = ..., col = ..., lw = n, bty = type)
+    posición: "bottom", "bottoright", "bottomleft", "top", ..., "center", "right", "left"
+    legend = xxx #leyenda será el texto xxx
+    legend = c("a", "b", "c") #leyenda incluirá a, b, c.
+      col = c("a", "b", "c") #determina los colores para los elementos a, b, c
+      
+      
   y = (2*(1:20))
   x = (-1)^(20:1)*5*(20:1)
   plot(x,y, main = "Felices Fiestas", sub = "", xlab = "", ylab = "", axes = FALSE,
-       pch = 8, cex = 1, type = "b", lty = 4, lwd = 4,
+       pch = 16, cex = 2, type = "b", lty = 4, lwd = 4,
        xaxp = c(-200,200,1), yaxp = c (-100, 100, 2), col = c("darkgreen", 2:20))
+  points(-5,39.9, col="gold", cex = 2, pch = 8, lwd = 5)
   
+  help("plot")
   
   plot(1:5, 1:5, pch = c("☺"),
        col = c("orange", 2:5), cex = 4,
        xlim = c(0, 6), ylim = c(0, 6))
-  
          
 #Plot de funciones
   

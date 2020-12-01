@@ -2,6 +2,11 @@
 #MATRICES#
 ##########
 
+BD <- BaseDatos
+library(readr)
+write_delim(BD, "./BD.txt", delim = ",")
+
+
 # Crear una matriz
   matrix(vector, nrow = n, ncol = n, byrow = valor_lógico)
       #vector: n (todos serían valores n); a:b (matriz se rellena con los datos de a-b)
