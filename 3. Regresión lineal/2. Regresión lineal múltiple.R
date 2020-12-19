@@ -8,6 +8,10 @@
 #--------------------------------
   
 #Definimos el modelo: V1~V2+V3+V4+V5
+
+modelo <- lm(V1~V2+V3+V4+V5, data = datos )
+summary(modelo)
+
   
 #--------------------------------  
   
