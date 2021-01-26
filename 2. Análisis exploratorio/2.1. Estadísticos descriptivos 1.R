@@ -28,10 +28,6 @@ library(gmodels)
 
 CrossTable(x, y, prop.chisq = FALSE) 
 
-
-
-
-
 #DATOS CUANTITATIVOS
 
 #Obtener los estadísticos descriptivos generales de una base de datos
@@ -56,3 +52,20 @@ CrossTable(x, y, prop.chisq = FALSE)
 #Cálculo de cuantiles de una variable
   quantile(BaseDatos$V1, prob = c(0.25, 0.5, 0.75), na.rm = TRUE) #na.rm solo actúa en caso de que haya valores = NA
 
+#MEDIDA DE DISPERSIÓN
+  
+  range(x) #valores mínimos y máximos
+  diff(range(x)) #Rango (diferencia máximo y mínimo)
+  IQR(x, type = ...) #Rango intercuantílico (diferencia entre el Q1 (0.25) y el Q3 (0.75))
+  var(x) #Varianza muestral
+  sd(x) # Desviación típica muestral
+  
+#RESUMEN
+  
+  summary(x) #resumen estadístico de una muestra
+  summary(subset(dataset, atributo1 == x, c("atributo2","atributo3"))) #resumen de los estadísticos de la muestra que en el atributo 1 tenga valor x, en relación al atributo 1 y 2 
+  by(dataset[,c(x,y)], dataset$atributo, FUN = summary) #Resumen estadístico de las columnas x e y (numéricas) para las distintas categorías existentes en "atributo"
+  
+#NA
+#Si el resultado en alguna operación fuera NA, es tan fácil como incorporar a cualquier función:
+  funcion(x,..., na.rm = TRUE)

@@ -4,6 +4,8 @@
 
 #Parámetros:
   main = "Título gráfica" 
+    ylab = "Descripción en la "y""
+    xlab = "Descripción en la "x""
   sub = "Fuente de la gráfica"
   pch = n #tipo de punto o indicador
     #permite incorporar el elemento que consideremos
@@ -80,7 +82,7 @@
   #col= cambia el color
   #abline(h =) establece una línea horizontal
   
-  boxplot(BaseDatos$V1, col = "orange")
+  boxplot(BaseDatos$V1, col = "orange", main = "Diagrama de caja")
   abline(h = 4.18, col = "red")
   
   boxplot(BaseDatos$V1, col = "grey")
@@ -98,7 +100,19 @@
   
   hist(BaseDatos$V1, col = "grey", breaks = 6)
   hist(BaseDatos$V1, col = "grey")
+  
+  hist(BaseDatos$V1, breaks = L, right = FALSE, plot = FALSE)
+  histAbs(BaseDatos$V1,L) #histograma con valores absolutos
+  histAbsCum(BaseDatos$V1,L) #histograma con valores absolutos acumulados
+  
+  rug(BaseDatos$V1) #añade rallitas de frecuencias al gráfico
+  rug(jitter(BaseDatos$V1)) #añade rallitas agrupadas (gruesas y finas)
 
+  histRel(BaseDatos$V1, L) #añade curva de densidad estimada
+  curve(dnorm(x, mean(BaseDatos$V1), sd(BaseDatos$V1)), col="cyan4", lty=4, lwd=2, add=TRUE) #añade curva normal Gauss para comparar
+  
+  histRelCum(BaseDatos$V1, L) #añade curva de densidad a frecuencias relativas acumuladas
+  
 #Histograma de densidad
   densidad_V1 <- density(BaseDatos$V1)
   plot(densidad_V1)
